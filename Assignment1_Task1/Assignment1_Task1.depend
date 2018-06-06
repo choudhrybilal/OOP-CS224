@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1528234260 source:c:\users\bilal\documents\codeblocks\assignment1_task1\main.cpp
+	<iostream>
+	<math.h>
+	<time.h>
+	<stdlib.h>
+	<fstream>
+
