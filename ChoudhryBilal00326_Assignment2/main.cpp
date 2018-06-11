@@ -111,7 +111,7 @@ void combat()//function to execute the combat between Rastan and the three bandi
     }
 	else
     {
-        cout << "/nRastan's weapon: Dagger!" << endl;
+        cout << "\nRastan's weapon: Dagger!" << endl;
         hit_strength = 40;
     }
     while (enemies > 0 || health > 0)
