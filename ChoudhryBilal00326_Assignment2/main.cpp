@@ -24,22 +24,20 @@ int arrows = 0;//initial number of arrows in Rastan's stock
 
 bool bow = false;//availability of bow(bool is either true or false)
 
-int movement(); // function defined later in the code; specified her due to other functions definitions in which this is called before and defined later.
+void movement(); // function defined later in the code; specified her due to other functions definitions in which this is called before and defined later.
 
-int days_passed()//number of days in gameplay increment
+void days_passed()//number of days in gameplay increment
 {
     days = days +1;
-    return 0;
 }
 
-int giveup()//function call when the user decides to give up playing the game
+void give_up()//function call when the user decides to give up playing the game
 {
-    string giveup[5] = {"Death by starvation!\n", "Death by disease!\n", "Death by dehydration!\n", "Death by avada kadavera!\n", "Death by snake bite!\n"};
+    string give_up[5] = {"Death by starvation!\n", "Death by disease!\n", "Death by dehydration!\n", "Death by avada kadavera!\n", "Death by snake bite!\n"};
     srand (time(NULL));
     int random1 = rand() % 5;
     cout << "\n\nRastan has decided to give up!" <<endl;
-    cout << "\nl" << giveup[random1] <<
-    endl;
+    cout << "\n" << give_up[random1] <<endl;
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" <<endl;
     cout << "                                                GAME OVER" <<endl;
     cout << "                                               YOU LOST!!!" <<endl;
@@ -47,14 +45,13 @@ int giveup()//function call when the user decides to give up playing the game
     exit(0);
 }
 
-int food_add()//function called when Rastan comes accross food supplies
+void food_add()//function called when Rastan comes accross food supplies
 {
     food_supplies = food_supplies + 5;
     cout <<"\nFood supplies for 5 more days!" <<endl;
-    return 0;
 }
 
-int food_left()//function to keep a track of Rastan's food supply
+void food_left()//function to keep a track of Rastan's food supply
 {
     food_supplies = food_supplies - 1;
     if (food_supplies == 0)
@@ -68,7 +65,7 @@ int food_left()//function to keep a track of Rastan's food supply
     }
 }
 
-int carvan_tracks()//function to keep a record of carvan tracks leading the way to Persia
+void carvan_tracks()//function to keep a record of carvan tracks leading the way to Persia
 {
     tracks = tracks + 1;
     cout << "\nCarvan Tracks = " << tracks <<endl;
@@ -81,17 +78,15 @@ int carvan_tracks()//function to keep a record of carvan tracks leading the way 
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" <<endl;
         exit(0);
     }
-    return 0;
 }
 
-int healer()//function called when Rastan comes across a healer when moving in the forward direction
+void healer()//function called when Rastan comes across a healer when moving in the forward direction
 {
     health = 20;
     cout << "\nRastan's health restored!\nRastan's Health = 20" <<endl;
-    return 0;
 }
 
-int health_status()//function called to keep a track of Rastan's health
+void health_status()//function called to keep a track of Rastan's health
 {
 	if (health==0)
     {
@@ -105,26 +100,26 @@ int health_status()//function called to keep a track of Rastan's health
 	}
 }
 
-int combat()//function to execute the combat between Rastan and the three bandits
+void combat()//function to execute the combat between Rastan and the three bandits
 {
     int enemies = 3;
-    int hitstrength = 0;
+    int hit_strength = 0;
 	if ((bow == true) && (arrows > 0))
     {
         cout << "\nRastan's weapon: Bow and " << arrows << " Arrows!"<< endl;
-        hitstrength = 75;
+        hit_strength = 75;
     }
 	else
     {
         cout << "/nRastan's weapon: Dagger!" << endl;
-        hitstrength = 40;
+        hit_strength = 40;
     }
     while (enemies > 0 || health > 0)
     {
 	    for (int a = 0; a < enemies; a = a + 1)
 	    {
 	    	cout << "\nRastan's turn to attack." << endl;
-		    if (hitstrength == 40)
+		    if (hit_strength == 40)
 		    {
 		        string attempt[5] = {"Rastan hit an enemy!", "Rastan hit an enemy!", "Rastan missed!", "Rastan missed!", "Rastan missed!"};
 		        srand (time(NULL));
@@ -135,7 +130,7 @@ int combat()//function to execute the combat between Rastan and the three bandit
 		    		enemies = enemies - 1;
 		    	}
 		    }
-			if (hitstrength == 75)
+			if (hit_strength == 75)
 			{
 		        string attempt[4] = {"Rastan hit an enemy!", "Rastan hit an enemy!", "Rastan hit an enemy!", "Rastan missed!"};
 		        srand (time(NULL));
@@ -150,7 +145,7 @@ int combat()//function to execute the combat between Rastan and the three bandit
 		        if (arrows < 1)
 		        {
 		        	cout<< "Rastan is out of arrows!\n ---> Rastan's weapon is now a dagger!"<< endl;
-		        	hitstrength = 40;
+		        	hit_strength = 40;
 		        }
 
 		    }
@@ -175,10 +170,9 @@ int combat()//function to execute the combat between Rastan and the three bandit
 		    }
 		}
 	}
-	return 0;
 }
 
-int treasure_chest()//function called when Rastan comes across treasure chest
+void treasure_chest()//function called when Rastan comes across treasure chest
 {
 	string chest[7] = {"Rastan found a bow!", "Rastan found 5 arrows!", "Rastan found 6 arrows!", "Rastan found 7 arrows!", "Rastan found 8 arrows!", "Rastan found 9 arrows!", "Rastan found 10 arrows!"};
     srand (time(NULL));
@@ -212,10 +206,9 @@ int treasure_chest()//function called when Rastan comes across treasure chest
     {
     	arrows = arrows + 10;
     }
-    return 0;
 }
 
-int moveforward()//function called when the user instructs Rastan to move forward
+void move_forward()//function called when the user instructs Rastan to move forward
 {
     string forward[5] = {"Rastan comes across food and water!", "Rastan comes across a hidden chest that contains a weapon or arrows!", "Rastan has crossed paths with 3 bandits!", "Rastan comes across a healer who heals him!", "Rastan comes across caravan tracks!"};
     srand (time(NULL));
@@ -241,10 +234,9 @@ int moveforward()//function called when the user instructs Rastan to move forwar
     {
         carvan_tracks();
     }
-    return 0;
 }
 
-int movement()
+void movement()
 {
     cout << "\n                                     ***Rastan's Health: " << health << "/20***" << endl;
     cout << "                             ***Rastan's food supply will last for " << food_supplies << " days***" << endl;
@@ -265,11 +257,11 @@ int movement()
         days_passed();
         food_left();
         cout << "Enough food left for: " << food_supplies << " days." << endl;
-        moveforward();
+        move_forward();
     }
     else if (userinput=='G')
     {
-        giveup();
+        give_up();
     }
     else
     {
@@ -285,7 +277,6 @@ int movement()
     {
         movement();
     }
-return 0;
 }
 
 int main()
@@ -298,4 +289,5 @@ int main()
     cout << "\nRastan's Initial Status: Rastan's Health = 20, Food Supplies = 10 days, Carvan Tracks = 0" <<endl;
     cout << "\nx-------------------------------------------------X-------------------------------------------------x" <<endl;
     movement();
+    return 0;
 }
