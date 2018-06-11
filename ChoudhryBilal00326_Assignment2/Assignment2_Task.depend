@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1528450597 source:c:\users\k\documents\oop\assignment2_task\main.cpp
+	<iostream>
+	<stdio.h>
+	<time.h>
+	<stdlib.h>
+
+1528532052 source:c:\users\bilal\desktop\assignment2_task\main.cpp
+	<iostream>
+	<stdio.h>
+	<time.h>
+	<stdlib.h>
+
