@@ -4,7 +4,7 @@
 
 
 Instructor: Dr. Umair Azfar Khan
-TA: Ahmed Ali
+\nTA: Ahmed Ali
 
 
 
