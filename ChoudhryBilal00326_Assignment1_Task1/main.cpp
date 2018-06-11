@@ -22,11 +22,10 @@ void GraphMaker() // Function GraphMaker() generates a sinusoidal waveform using
 {                // It is done using two nested for loops, here the period of the sinusoidal is hard coded as 360 degrees and can be varied.
     ofstream myfile;
     myfile.open("graph.txt");
-    int sine=0;
-    for (int sine=0; sine<=360; sine+=1)
+    for (int degree=0; degree<=360; degree+=1) //time period of sine wave
     {
-        int c=sin((PI/180)*sine)*35+100;
-        for(int j=0; j<c;j++)
+        int sine=sin((PI/180)*degree)*35+100;
+        for(int j=0; j<sine;j++)
         {
             myfile<<" ";
         }
