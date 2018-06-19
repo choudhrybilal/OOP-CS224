@@ -38,11 +38,10 @@ public:    //public functions
         volume = length * width * height;
     }
 
-    int getVolume()  //returns the volume of the box
+    int get_volume()  //returns the volume of the box
     {
         return volume;
     }
-
 };
 
 class Truck
@@ -55,7 +54,7 @@ class Truck
     float total_journey;
     float cost_per_litre;
     float max_petrol;
-    Box *arrayBox;      //initializing boxes array
+    Box *array_box;      //initializing boxes array
 
 public:     //public functions
 
@@ -66,52 +65,52 @@ public:     //public functions
         max_petrol = 50;         //tank limit
     }
 
-    void setDriver(char d[32])    //acceses the name of the driver from main and sets it here
+    void set_driver(char d[32])    //acceses the name of the driver from main and sets it here
     {
         strcpy(driver, d);   //character array d is copied to driver
     }
 
-    string getDriver()           //returns the name of the driver
+    string get_driver()           //returns the name of the driver
     {
         return driver;
     }
 
-    void setPetrol(int p)        //acceses the value of petrol from main and sets it
+    void set_petrol(int p)        //acceses the value of petrol from main and sets it
     {
         petrol = p;
     }
 
-    int getPetrol()
+    int get_petrol()
     {
         return petrol;
     }
 
-    void setMoney(int m)
+    void set_money(int m)
     {
         money = m;
     }
 
-    int getMoney()
+    int get_money()
     {
         return money;
     }
 
-    void setEmileage(int emileage)
+    void set_e_mileage(int e_mileage)
     {
-        empty_mileage = emileage;
+        empty_mileage = e_mileage;
     }
 
-    int getEmileage()
+    int get_e_mileage()
     {
         return empty_mileage;
     }
 
-    void setLmileage(int lmileage)
+    void set_l_mileage(int l_mileage)
     {
-        loaded_mileage = lmileage;
+        loaded_mileage = l_mileage;
     }
 
-    int getLmileage()
+    int get_l_mileage()
     {
         return loaded_mileage;
     }
@@ -156,19 +155,19 @@ public:     //public functions
 
     void Load(int numBox)      //loads boxes into the truck
     {
-        arrayBox = new Box[numBox];
-        for (int i = 0; i<numBox; i++)
+        array_box = new Box[numBox];
+        for (int i = 0; i < numBox; i++)
         {
             Box b;
             b.Volume();   //stores the volume
-            arrayBox[i] = b;
-            cout << "Volume of box " << i+1 << ": " << arrayBox[i].getVolume() << " cubic inches" << endl;
+            array_box[i] = b;
+            cout << "Volume of box " << i + 1 << ": " << array_box[i].get_volume() << " cubic inches" << endl;
         }
     }
 
     void Unload()           //unloads boxes from the truck
     {
-        delete[] arrayBox;    //deallocates the array
+        delete[] array_box;    //deallocates the array
     }
 
     float Cost()           //calculates the total cost for the complete journey
@@ -182,14 +181,14 @@ public:     //public functions
     }
 };
 
-int LineCounter(const char* fileName)   //tells the number of lines needed
+int line_counter(const char* fileName)   //tells the number of lines needed
 {
-    FILE* filePointer;                          //Declaring a file pointer
+    FILE* file_pointer;                          //Declaring a file pointer
     char buff[32];                              //Declaring a character array to store a line
 
-    filePointer = fopen(fileName, "r");         //Opening file as read only
+    file_pointer = fopen(fileName, "r");         //Opening file as read only
 
-    if (filePointer == NULL)                    //If file is not found
+    if (file_pointer == NULL)                    //If file is not found
     {
         perror ("Error opening file");          //Show Error
         return 0;
@@ -197,60 +196,60 @@ int LineCounter(const char* fileName)   //tells the number of lines needed
 
     int counter = 0;                            //Counts the lines in file
 
-    while(fgets(buff, 32, (FILE*)filePointer) !=NULL)   //If line read is not NULL
+    while(fgets(buff, 32, (FILE*)file_pointer) !=NULL)   //If line read is not NULL
     {
         counter++;                                      //increase line count
     }
-    fclose(filePointer);                                //close file when done
+    fclose(file_pointer);                                //close file when done
     return counter;                                     //return line count
 }
 
 int main()
 {
     srand(time(0));
-    FILE* filePointer;                          //Declaring a file pointer
-    filePointer = fopen("Drivers.txt", "r");    //Opening file as read only
-    int count = LineCounter("Drivers.txt");
+    FILE* file_pointer;                          //Declaring a file pointer
+    file_pointer = fopen("Drivers.txt", "r");    //Opening file as read only
+    int count = line_counter("Drivers.txt");
     int count1 = count/5;                       //since each driver has 5 lines of info
 
-    Truck *arrayTruck;
-    if (filePointer == NULL)
+    Truck *array_truck;
+    if (file_pointer == NULL)
     {
         perror ("Error opening file");
         return 0;
     }
-    arrayTruck = new Truck[count1];
+    array_truck = new Truck[count1];
 
     cout <<"                              PACKAGE DELIVERY SYSTEM\n"<<endl;
 
-    for (int i = 0; i<count1; i++)
+    for (int i = 0; i < count1; i++)
     {
         cout <<"----------------------------------------("<<i+1<<")----------------------------------------"<<endl;
         Truck t;                //creating an object
         char buff[32];          //Declaring a character array to store a line
 
-        fgets(buff, 32, (FILE*)filePointer); //Reading the name of the driver directly
-        t.setDriver(buff);
+        fgets(buff, 32, (FILE*)file_pointer); //Reading the name of the driver directly
+        t.set_driver(buff);
 
-        fgets(buff, 32, (FILE*)filePointer);        //Reading the next line as string
-        t.setPetrol(atoi(buff));                //Converting the string to integer
+        fgets(buff, 32, (FILE*)file_pointer);        //Reading the next line as string
+        t.set_petrol(atoi(buff));                //Converting the string to integer
 
-        fgets(buff, 32, (FILE*)filePointer);
-        t.setMoney(atoi(buff));
+        fgets(buff, 32, (FILE*)file_pointer);
+        t.set_money(atoi(buff));
 
-        fgets(buff, 32, (FILE*)filePointer);
-        t.setEmileage(atoi(buff));
+        fgets(buff, 32, (FILE*)file_pointer);
+        t.set_e_mileage(atoi(buff));
 
-        fgets(buff, 32, (FILE*)filePointer);
-        t.setLmileage(atoi(buff));
+        fgets(buff, 32, (FILE*)file_pointer);
+        t.set_l_mileage(atoi(buff));
 
-        cout << "Truck driver name: " << t.getDriver() <<endl;
-        cout << "Truck's petrol: " << t.getPetrol() <<" liters"<<endl;
-        cout << "Truck driver's money: $ " << t.getMoney() <<endl;
-        cout << "Truck's mileage when loaded: " << t.getLmileage() <<" km"<<endl;
-        cout << "Truck's mileage when empty: " << t.getEmileage() <<" km"<<endl;
+        cout << "Truck driver name: " << t.get_driver() <<endl;
+        cout << "Truck's petrol: " << t.get_petrol() <<" liters"<<endl;
+        cout << "Truck driver's money: $ " << t.get_money() <<endl;
+        cout << "Truck's mileage when loaded: " << t.get_l_mileage() <<" km"<<endl;
+        cout << "Truck's mileage when empty: " << t.get_e_mileage() <<" km"<<endl;
 
-        int random_boxes =  12+(rand() % 9);  //random packages between 12 to 20
+        int random_boxes =  12 + (rand() % 9);  //random packages between 12 to 20
         if (t.checker() == 1)            //checks if the driver has enough money to go
         {
             t.print();
@@ -265,10 +264,10 @@ int main()
         {
             cout << "\n----->>> This truck can't go!\n" << endl;
         }
-        arrayTruck[i] = t;
+        array_truck[i] = t;
     }
 
-    delete [] arrayTruck;                       // deallocating array of truck
-    fclose(filePointer);                        //Closing file
+    delete [] array_truck;                       // deallocating array of truck
+    fclose(file_pointer);                        //Closing file
     return 0;
 }
