@@ -149,8 +149,6 @@ public:     //public functions
         cout << "Truck driver's money: $ " << money <<endl;
         cout << "Truck's mileage when loaded: " << loaded_mileage<<" km"<<endl;
         cout << "Truck's mileage when empty: " << empty_mileage<<" km\n"<<endl;
-
-
     }
 
     void Load(int numBox)      //loads boxes into the truck
