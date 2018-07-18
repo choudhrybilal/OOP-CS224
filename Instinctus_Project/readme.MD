@@ -11,6 +11,6 @@ By:
     Choudhry Bilal Mazhar(cm00326)
     Muhammad Talha (mt00727)
     
-    
-
-YouTube Video Walkthrough: https://www.youtube.com/watch?v=HQ9HNnQwlpI&feature=youtu.be
+ ![alt text](snapshot.JPG)
+ 
+ YouTube Video Walkthrough: https://www.youtube.com/watch?v=HQ9HNnQwlpI&feature=youtu.be
