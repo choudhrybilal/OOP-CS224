@@ -75,6 +75,8 @@ void MainMenu::handle_event(SDL_Event e, bool* mouse_click, bool* quit, int* cas
 
                 else if (x > 130 && x < 470 && y > 300 && y <350)
                 {
+                    *mouse_click = true;
+                    *cases = 4;
                     cout <<x<<" "<<y<<endl;
                 }
 

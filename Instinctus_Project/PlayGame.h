@@ -33,6 +33,10 @@ public:
     bool colliding(Route*, Route*,Route*,Route*);
     void save_game(ofstream& readfile);
     void load_game(ifstream& readfile);
+    bool collide()
+    {
+        return colliding(route_up, route_left, route_down, route_right);
+    }
 
 protected:
     Mobile* car = NULL;

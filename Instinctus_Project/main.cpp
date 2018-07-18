@@ -338,6 +338,7 @@ int main( int argc, char* args[] )
                     play->make_new_mobile(&switch_case, &i_load.gSpriteSheetCar, &i_load.gSpriteSheetTruck, &i_load.gSpriteSheetMotorcycle, &i_load.gSpriteSheetAmbulance, &i_load.gSpriteSheetPerson, frame);
                     play->Update_signal(move_from_up,move_from_left,move_from_right,move_from_down);
                     play->Render(frame, gRenderer, false);
+
                     SDL_RenderPresent( gRenderer );
                     ++frame;
                     if (play->get_score() < 1)
@@ -351,6 +352,23 @@ int main( int argc, char* args[] )
                     game_over->Render(frame, gRenderer, false);
                     SDL_RenderPresent( gRenderer );
                     game_over->game_over_event(e, &mouse_click, &quit, &switch_case);
+                    break;
+                }
+                case 4:
+                {
+                    savefile.open(filename);
+                    play->load_game(savefile);
+                    savefile.close();
+                    play->make_new_mobile(&switch_case, &i_load.gSpriteSheetCar, &i_load.gSpriteSheetTruck, &i_load.gSpriteSheetMotorcycle, &i_load.gSpriteSheetAmbulance, &i_load.gSpriteSheetPerson, frame);
+                    play->Update_signal(move_from_up,move_from_left,move_from_right,move_from_down);
+                    play->Render(frame, gRenderer, false);
+
+                    SDL_RenderPresent( gRenderer );
+                    ++frame;
+                    if (play->get_score() < 1)
+                    {
+                        switch_case = 3;
+                    }
                     break;
                 }
                 }
