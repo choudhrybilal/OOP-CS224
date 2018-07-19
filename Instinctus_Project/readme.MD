@@ -8,8 +8,8 @@
 #### Instructor: Dr. Umair Azfar Khan
 
 #### By:
-####    Choudhry Bilal Mazhar(cm00326)
-####    Muhammad Talha (mt00727)
+####          Choudhry Bilal Mazhar(cm00326)
+####          Muhammad Talha (mt00727)
     
  ![alt text](snapshot.JPG)
  
