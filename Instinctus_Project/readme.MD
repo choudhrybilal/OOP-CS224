@@ -5,11 +5,11 @@
 
 "Congestion at intersection is the bane of urban experience. With Instinctus, traffic signal makes smart switching decisions, optimizing signal cycles"
 
-Instructor: Dr. Umair Azfar Khan
+#### Instructor: Dr. Umair Azfar Khan
 
-By:
-    Choudhry Bilal Mazhar(cm00326)
-    Muhammad Talha (mt00727)
+#### By:
+####    Choudhry Bilal Mazhar(cm00326)
+####    Muhammad Talha (mt00727)
     
  ![alt text](snapshot.JPG)
  
